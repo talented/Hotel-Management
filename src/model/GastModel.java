@@ -124,7 +124,7 @@ public class GastModel extends DBHelper {
 
 			if (rs.next()) {
 				gast = getGast(gast.getVorname(), gast.getNachname(), gast.getGeburtsdatum());
-//				new InformationAlert("Erfolgreich!", "Erfolgreich in der Datenbank mit Gastnummer " + gast.getGastNr() + " gespeichert!");
+				new InformationAlert("Erfolgreich!", "Erfolgreich in der Datenbank mit Gastnummer " + gast.getGastNr() + " gespeichert!");
 			}
 
 		} catch (SQLException e) {

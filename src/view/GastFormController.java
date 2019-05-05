@@ -335,6 +335,7 @@ public class GastFormController {
 
 		try {
 			gast = new Gast(gastNr, vorname, nachname, geburtsdatum, strasse, hausNr, plz, ort, land, email, telefon);
+
 		} catch (IllegalArgumentException e) {
 			//new ErrorAlert("Eingabefehler", null, e.getMessage(), false);
 
@@ -365,9 +366,10 @@ public class GastFormController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		if (result.getGastNr() == gast.getGastNr()) {
+
+		if (result.getGastNr().equals(gast.getGastNr())) {
 			new InformationAlert("aktualisieren","Der gast erfolgreich aktualisiert");
-		}else {
+		} else {
 			new ErrorAlert("aktualisieren", null,"Der gast aktualisiert nicht" , true);
 		}
 	}

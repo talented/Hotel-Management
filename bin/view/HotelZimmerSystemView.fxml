@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="575.0" prefWidth="1150.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.HotelZimmerSystemViewController">
+   <children>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="336.0" layoutY="16.0" text="Hotel Verwaltung System" textAlignment="CENTER" AnchorPane.topAnchor="16.0">
+         <font>
+            <Font size="40.0" />
+         </font>
+      </Label>
+      <Separator layoutX="27.0" layoutY="72.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="80.0" />
+      <Button layoutX="32.0" layoutY="100.0" mnemonicParsing="false" onAction="#btnNeueGast" prefHeight="20.0" prefWidth="160.0" text="Gast anlegen" AnchorPane.leftAnchor="32.0" AnchorPane.topAnchor="100.0">
+         <font>
+            <Font size="13.0" />
+         </font></Button>
+      <Button layoutX="32.0" layoutY="140.0" mnemonicParsing="false" onAction="#btnGastBearbeiten" prefHeight="20.0" prefWidth="160.0" text="Gast bearbeiten" AnchorPane.leftAnchor="32.0" AnchorPane.topAnchor="140.0">
+         <font>
+            <Font size="13.0" />
+         </font></Button>
+      <Button layoutX="32.0" layoutY="180.0" mnemonicParsing="false" onAction="#btnNeueBuchung" prefHeight="20.0" prefWidth="160.0" text="Buchung anlegen" AnchorPane.leftAnchor="32.0" AnchorPane.topAnchor="180.0">
+         <font>
+            <Font size="13.0" />
+         </font></Button>
+      <Button layoutX="32.0" layoutY="220.0" mnemonicParsing="false" onAction="#btnBuchungBearbeiten" prefHeight="20.0" prefWidth="160.0" text="Buchung bearbeiten" AnchorPane.leftAnchor="32.0" AnchorPane.topAnchor="220.0">
+         <font>
+            <Font size="13.0" />
+         </font></Button>
+      <Separator layoutY="277.0" prefHeight="3.0" prefWidth="224.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="277.0" />
+      <TextField fx:id="tfBuchungsStornieren" alignment="TOP_CENTER" layoutX="32.0" layoutY="308.0" prefHeight="20.0" prefWidth="160.0" promptText="YYYY-X" AnchorPane.leftAnchor="32.0" AnchorPane.topAnchor="308.0">
+         <font>
+            <Font size="13.0" />
+         </font></TextField>
+      <Button layoutX="32.0" layoutY="348.0" mnemonicParsing="false" onAction="#btnBuchungStornieren" prefHeight="20.0" prefWidth="160.0" text="Buchung stornieren" AnchorPane.leftAnchor="32.0" AnchorPane.topAnchor="348.0">
+         <font>
+            <Font size="13.0" />
+         </font></Button>
+      <Separator layoutY="405.0" prefHeight="3.0" prefWidth="224.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="405.0" />
+      <TextField fx:id="tfBuchungsDruecken" alignment="TOP_CENTER" layoutX="32.0" layoutY="436.0" prefHeight="20.0" prefWidth="160.0" promptText="YYYY-X" AnchorPane.leftAnchor="32.0" AnchorPane.topAnchor="436.0">
+         <font>
+            <Font size="13.0" />
+         </font></TextField>
+      <Button layoutX="32.0" layoutY="476.0" mnemonicParsing="false" onAction="#btnRechnungErstellen" prefHeight="20.0" prefWidth="160.0" text="Rechnung erstellen" AnchorPane.leftAnchor="32.0" AnchorPane.topAnchor="476.0">
+         <font>
+            <Font size="13.0" />
+         </font></Button>
+      <TableView fx:id="tableview" layoutX="245.0" layoutY="95.0" prefHeight="450.0" prefWidth="900.0" AnchorPane.leftAnchor="225.0" AnchorPane.topAnchor="100.0">
+        <columns>
+          <TableColumn fx:id="columnBuchungsNr" maxWidth="115.0" prefWidth="115.0" text="Buchung-Nr" />
+            <TableColumn fx:id="columnGastNr" maxWidth="100.0" prefWidth="100.0" text="Gast-Nr" />
+          <TableColumn fx:id="columnAnreise" maxWidth="100.0" prefWidth="100.0" text="Anreise" />
+            <TableColumn fx:id="columnAbreise" maxWidth="100.0" prefWidth="100.0" text="Abreise" />
+            <TableColumn fx:id="columnZimmerNummer" maxWidth="102.0" prefWidth="102.0" text="Zimmer-Nr" />
+            <TableColumn fx:id="columnFruehstueck" maxWidth="90.0" prefWidth="90.0" text="Frühstück" />
+            <TableColumn fx:id="columnKinderbett" maxWidth="90.0" prefWidth="90.0" text="Kinderbett" />
+            <TableColumn fx:id="columnAnzahlPersonen" maxWidth="102.0" prefWidth="102.0" text="Anzahl Personen" />
+            <TableColumn fx:id="columnZahlungsart" maxWidth="100.0" prefWidth="100.0" text="Zahlungsart" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

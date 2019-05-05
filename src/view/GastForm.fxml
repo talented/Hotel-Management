@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane minHeight="400.0" minWidth="250.0" prefHeight="533.0" prefWidth="837.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.GastFormController">
+   <top>
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="400.0" minWidth="250.0" prefHeight="567.0" prefWidth="850.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="lblGastNr" alignment="CENTER_RIGHT" layoutX="150.0" layoutY="107.0" prefHeight="37.0" prefWidth="160.0" text="Gast-Nr : ">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <Button fx:id="btnZurueck" layoutX="30.0" layoutY="30.0" mnemonicParsing="false" onAction="#closeView" prefHeight="30.0" prefWidth="100.0" text="Zurück">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnEditGast" layoutX="144.0" layoutY="467.0" mnemonicParsing="false" onAction="#editGast" prefHeight="30.0" prefWidth="200.0" text="Gast ändern">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnSearchGast" layoutX="570.0" layoutY="467.0" mnemonicParsing="false" onAction="#searchGast" prefHeight="30.0" prefWidth="200.0" text="Gast suchen" wrapText="true">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Button>
+            <Label fx:id="lblTitel" alignment="CENTER" layoutX="238.0" layoutY="20.0" prefHeight="50.0" prefWidth="377.0" text="Gast Bearbeiten" textAlignment="CENTER" textFill="#020117">
+               <font>
+                  <Font size="40.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblGastVorname" alignment="CENTER_RIGHT" layoutX="33.0" layoutY="167.0" prefHeight="37.0" prefWidth="100.0" text="Vorname: ">
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtGastVorname" layoutX="143.0" layoutY="167.0" prefHeight="30.0" prefWidth="250.0">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </TextField>
+            <Label fx:id="lblGastNachname" alignment="CENTER_RIGHT" layoutX="426.0" layoutY="167.0" prefHeight="37.0" prefWidth="80.0" text="Name:">
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtGastNachname" layoutX="520.0" layoutY="167.0" prefHeight="30.0" prefWidth="250.0">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </TextField>
+            <Label fx:id="lblGastEMail" alignment="CENTER_RIGHT" layoutX="29.0" layoutY="407.0" prefHeight="37.0" prefWidth="100.0" text="E-Mail:">
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtGastEMail" layoutX="143.0" layoutY="407.0" prefHeight="30.0" prefWidth="250.0">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </TextField>
+            <Label fx:id="lblGastTelefon" alignment="CENTER_RIGHT" layoutX="426.0" layoutY="407.0" prefHeight="37.0" prefWidth="80.0" text="Telefon:">
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtGastTelefon" layoutX="520.0" layoutY="407.0" prefHeight="30.0" prefWidth="250.0">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </TextField>
+            <DatePicker fx:id="dpGastGeburtsdatum" layoutX="141.0" layoutY="227.0" prefHeight="30.0" prefWidth="250.0" promptText="TT.MM.JJJJ" />
+            <Label fx:id="lblGastGeburtsdatum" alignment="CENTER_RIGHT" layoutX="13.0" layoutY="227.0" prefHeight="37.0" prefWidth="116.0" text="Geburtsdatum:">
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtGastStrasse" layoutX="143.0" layoutY="287.0" prefHeight="30.0" prefWidth="250.0">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </TextField>
+            <Label fx:id="lblGastHausNr" alignment="CENTER_RIGHT" layoutX="426.0" layoutY="287.0" prefHeight="37.0" prefWidth="80.0" text="Haus-Nr:">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblGastStrasse" alignment="CENTER_RIGHT" layoutX="29.0" layoutY="287.0" prefHeight="37.0" prefWidth="100.0" text="Strasse:">
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblGastOrt" alignment="CENTER_RIGHT" layoutX="426.0" layoutY="227.0" prefHeight="37.0" prefWidth="80.0" text="Ort:">
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtGastOrt" layoutX="520.0" layoutY="227.0" prefHeight="30.0" prefWidth="250.0">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </TextField>
+            <Label fx:id="lblGastPlz" alignment="CENTER_RIGHT" layoutX="29.0" layoutY="347.0" prefHeight="37.0" prefWidth="100.0" text="PLZ:">
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblGastLand" alignment="CENTER_RIGHT" layoutX="425.0" layoutY="347.0" prefHeight="37.0" prefWidth="80.0" text="Land:">
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtGastPlz" layoutX="143.0" layoutY="347.0" prefHeight="30.0" prefWidth="250.0">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="txtGastLand" layoutX="520.0" layoutY="347.0" prefHeight="30.0" prefWidth="250.0">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="txtGastHausNr" layoutX="520.0" layoutY="287.0" prefHeight="30.0" prefWidth="250.0">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="txtGastNr" layoutX="350.0" layoutY="107.0" prefHeight="30.0" prefWidth="250.0" promptText="Sucht mit einem Gast Nummer">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </TextField>
+            <Button fx:id="btnLeer" layoutX="357.0" layoutY="467.0" mnemonicParsing="false" onAction="#leerTextField" prefHeight="30.0" prefWidth="200.0" text="Zurücksetzen">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Button>
+            <Label fx:id="lblGastVorname1" alignment="CENTER_RIGHT" layoutX="121.0" layoutY="163.0" prefHeight="37.0" prefWidth="2.0" text="*" textFill="#f20b0b">
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblGastVorname11" alignment="CENTER_RIGHT" layoutX="120.0" layoutY="221.0" prefHeight="37.0" prefWidth="2.0" text="*" textFill="#f20b0b">
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblGastVorname12" alignment="CENTER_RIGHT" layoutX="496.0" layoutY="341.0" prefHeight="37.0" prefWidth="2.0" text="*" textFill="#f20b0b">
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblGastVorname13" alignment="CENTER_RIGHT" layoutX="497.0" layoutY="163.0" prefHeight="37.0" prefWidth="2.0" text="*" textFill="#f20b0b">
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblGastVorname14" alignment="CENTER_RIGHT" layoutX="498.0" layoutY="221.0" prefHeight="37.0" prefWidth="2.0" text="*" textFill="#f20b0b">
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+         </children></AnchorPane>
+   </top>
+</BorderPane>

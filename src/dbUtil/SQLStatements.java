@@ -1,6 +1,6 @@
-package hotelverwaltung.database;
+package dbUtil;
 
-import hotelverwaltung.util.Konstanten;
+import util.Konstanten;
 
 public class SQLStatements {
 	
@@ -53,14 +53,14 @@ public class SQLStatements {
 			" anzahlBetten  INT, " + 
 			" preisProNacht DOUBLE);";
 	
-	// Insert für Zimmerkategorien
+	// Insert fï¿½r Zimmerkategorien
 	static final String INSERT_TABLE_ZIMMERKATEGORIE_EZ = "INSERT INTO zimmerKategorie (name, anzahlBetten, preisProNacht) VALUES ('"+ Konstanten.EZ_NAME +"', "+Konstanten.EZ_BETTEN+", "+Konstanten.EZ_PREIS+");";
 	static final String INSERT_TABLE_ZIMMERKATEGORIE_DZ = "INSERT INTO zimmerKategorie (name, anzahlBetten, preisProNacht) VALUES ('"+ Konstanten.DZ_NAME +"', "+Konstanten.DZ_BETTEN+", "+Konstanten.DZ_PREIS+");";
 	static final String INSERT_TABLE_ZIMMERKATEGORIE_FZ = "INSERT INTO zimmerKategorie (name, anzahlBetten, preisProNacht) VALUES ('"+ Konstanten.FZ_NAME +"', "+Konstanten.FZ_BETTEN+", "+Konstanten.FZ_PREIS+");";
 	static final String INSERT_TABLE_ZIMMERKATEGORIE_BS = "INSERT INTO zimmerKategorie (name, anzahlBetten, preisProNacht) VALUES ('"+ Konstanten.SUITE_NAME +"', "+Konstanten.SUITE_BETTEN+", "+Konstanten.SUITE_PREIS+");";
 
 	
-	// Insert für Zimmer
+	// Insert fï¿½r Zimmer
 	static final String INSERT_TABLE_ZIMMER_EZ = "INSERT INTO zimmer (kategorieNr) VALUES (1);";
 	static final String INSERT_TABLE_ZIMMER_DZ = "INSERT INTO zimmer (kategorieNr) VALUES (2);";
 	static final String INSERT_TABLE_ZIMMER_FZ = "INSERT INTO zimmer (kategorieNr) VALUES (3);";

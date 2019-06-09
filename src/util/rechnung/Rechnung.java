@@ -145,7 +145,7 @@ public class Rechnung {
         	break;
         default:
         	txtHotelZimmerKategory = Konstanten.HOTELZIMMERKATEGORY_SUITE;
-}
+		}
 		
 		
 		//information über der Gast
@@ -164,16 +164,15 @@ public class Rechnung {
 		if (gast.getTelefon()!= null) {
 			this.txtGastTelefon = gast.getTelefon();// wird Feld Telefon leer sein , wird Telefon = ""
 		}
-		
-		
-		
+				
 	}
+	
 	/**
 	 * Diese Methode WordDOCXPOI bildet den Inhalt des Dokumentes.
 	 *  
-	 * Ruft die Methode welches der Verzeichnis für der  Schpeicherung die Datei vorbereitet.
-	 * Ruft die Methode  welches die Datei schpeichert . 
-	 * Ruft die Methode welches die Datei aufrufst.
+	 * Ruft die Methode welches der Verzeichnis für der  Speicherung die Datei vorbereitet.
+	 * Ruft die Methode  welches die Datei speichert. 
+	 * Ruft die Methode welches die Datei aufruft.
 	 * @param None
 	 * @return None
 	 */
@@ -214,6 +213,7 @@ public class Rechnung {
 			addText(docx.createParagraph(), "", "", Konstanten.H2, false, false, false);
 			
 			addText(docx.createParagraph(), "Rechnung", "", Konstanten.H2, true, false, false);
+			addText(docx.createParagraph(), "", "", Konstanten.H2, false, false, false);
 			addText(docx.createParagraph(), "Rechnungsnummer: " + txtHotelRechnungsnummer, "", Konstanten.H4, true, false, true);
 			
 			//Rechnungsdatum wird als laufende Datum mit Uhrzeit genommen
@@ -224,6 +224,7 @@ public class Rechnung {
 					+ intHotelAnzahlPerson;
 			addText(docx.createParagraph(), txt2, "", Konstanten.H4, false, false, false);
 			addText(docx.createParagraph(), "", "", Konstanten.H4, false, false, false);
+			addText(docx.createParagraph(), "", "", Konstanten.H2, false, false, false);
 	
 			// Rechnen die Anzahl der Tage/Nächte des Aufenhaltes im Hotel
 			long aufenhalttagen = ChronoUnit.DAYS.between(ldHotelanreise, ldHotelabreise);

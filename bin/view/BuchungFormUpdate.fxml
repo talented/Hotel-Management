@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="455" prefWidth="750" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.BuchungFormUpdateController">
+   <children>
+		<DatePicker fx:id="dpAnreise" layoutX="138.0" layoutY="218.0" onAction="#auswahlAnreise" prefHeight="25.0" prefWidth="149.0" AnchorPane.leftAnchor="138.0" AnchorPane.topAnchor="218.0" />
+		<Label layoutX="184.0" layoutY="27.0" text="Buchung Bearbeiten" AnchorPane.leftAnchor="184.0" AnchorPane.topAnchor="27.0">
+			<font>
+				<Font name="System Regular" size="40.0" />
+			</font>
+		</Label>
+		<Label layoutX="70.0" layoutY="224.0" text="Anreise:" AnchorPane.leftAnchor="70.0" AnchorPane.topAnchor="224.0">
+			<font>
+				<Font name="System Regular" size="13.0" />
+			</font>
+		</Label>
+		<Label layoutX="69.0" layoutY="269.0" text="Abreise:" AnchorPane.leftAnchor="69.0" AnchorPane.topAnchor="269.0">
+			<font>
+				<Font name="System Regular" size="13.0" />
+			</font>
+		</Label>
+		<Label layoutX="77.0" layoutY="313.0" text="Extras:" AnchorPane.leftAnchor="77.0" AnchorPane.topAnchor="313.0">
+			<font>
+				<Font name="System Regular" size="13.0" />
+			</font>
+		</Label>
+		<Label layoutX="420.0" layoutY="179.0" text="Anzahl Personen:" AnchorPane.rightAnchor="223.0" AnchorPane.topAnchor="179.0">
+			<font>
+				<Font name="System Regular" size="13.0" />
+			</font>
+		</Label>
+		<Label layoutX="449.0" layoutY="269.0" text="Zahlungsart:" AnchorPane.rightAnchor="223.5" AnchorPane.topAnchor="269.0">
+			<font>
+				<Font name="System Regular" size="13.0" />
+			</font>
+		</Label>
+		<Label layoutX="403.0" layoutY="224.0" text="Verfügbare Zimmer:" AnchorPane.rightAnchor="223.5" AnchorPane.topAnchor="224.0">
+			<font>
+				<Font name="System Regular" size="13.0" />
+			</font>
+		</Label>
+		<DatePicker fx:id="dpAbreise" layoutX="138.0" layoutY="263.0" onAction="#auswahlAbreise" prefHeight="25.0" prefWidth="149.0" AnchorPane.leftAnchor="138.0" AnchorPane.topAnchor="263.0" />
+		<ChoiceBox fx:id="cmbZahlungsart" layoutX="544.0" layoutY="263.0" prefWidth="150.0" AnchorPane.rightAnchor="56.0" AnchorPane.topAnchor="263.0" />
+		<ChoiceBox fx:id="cmbZimmer" layoutX="544.0" layoutY="218.0" prefWidth="150.0" AnchorPane.rightAnchor="56.0" AnchorPane.topAnchor="218.0">
+			<padding>
+				<Insets right="5.0" />
+			</padding>
+		</ChoiceBox>
+		<Button fx:id="btnaendern" layoutX="575.0" layoutY="372.0" mnemonicParsing="false" onAction="#buchungAendern" text="Buchung ändern" AnchorPane.bottomAnchor="56.0" AnchorPane.rightAnchor="56.0" />
+		<Label layoutX="42.0" layoutY="134.0" text="Buchung-Nr:" AnchorPane.leftAnchor="42.0" AnchorPane.topAnchor="134.0">
+			<font>
+				<Font name="System Regular" size="13.0" />
+			</font>
+		</Label>
+		<TextField fx:id="tfBuchungsnummer" layoutX="138.0" layoutY="128.0" prefHeight="27.0" prefWidth="124.0" promptText="20YY-X" AnchorPane.leftAnchor="138.0" AnchorPane.topAnchor="128.0" />
+		<CheckBox fx:id="chbFruehstueck" layoutX="138.0" layoutY="313.0" mnemonicParsing="false" text="Frühstück" AnchorPane.leftAnchor="138.0" AnchorPane.topAnchor="313.0" />
+		<CheckBox fx:id="chbKinderbett" layoutX="138.0" layoutY="333.0" mnemonicParsing="false" text="Kinderbett" AnchorPane.leftAnchor="138.0" AnchorPane.topAnchor="333.0" />
+		<Button fx:id="btnAbbrechen" layoutX="39.0" layoutY="38.0" mnemonicParsing="false" onAction="#abbrechen" prefHeight="27.0" prefWidth="88.0" text="Zurück" AnchorPane.bottomAnchor="390.0" AnchorPane.rightAnchor="623.0" />
+		<ChoiceBox fx:id="cmbAnzahlPersonen" layoutX="544.0" layoutY="173.0" prefWidth="150.0" AnchorPane.rightAnchor="56.0" AnchorPane.topAnchor="173.0">
+			<padding>
+				<Insets right="5.0" />
+			</padding>
+		</ChoiceBox>
+		<Button fx:id="btnSuchen" layoutX="575.0" layoutY="320.0" mnemonicParsing="false" onAction="#buchungsnummerSuchen" prefHeight="27.0" prefWidth="119.0" text="Suchen" />
+		<Label layoutX="124.0" layoutY="174.0" text="*" textFill="RED">
+			<font>
+				<Font name="System Bold" size="18.0" />
+			</font>
+		</Label>
+		<Label layoutX="152.0" layoutY="187.0" text="*" textFill="RED">
+			<font>
+				<Font name="System Bold" size="18.0" />
+			</font>
+		</Label>
+		<Label layoutX="124.0" layoutY="219.0" text="*" textFill="RED">
+			<font>
+				<Font name="System Bold" size="18.0" />
+			</font>
+		</Label>
+		<Label layoutX="530.0" layoutY="174.0" text="*" textFill="RED">
+			<font>
+				<Font name="System Bold" size="18.0" />
+			</font>
+		</Label>
+		<Label layoutX="530.0" layoutY="219.0" text="*" textFill="RED">
+			<font>
+				<Font name="System Bold" size="18.0" />
+			</font>
+		</Label>
+		<Label layoutX="530.0" layoutY="264.0" text="*" textFill="RED">
+			<font>
+				<Font name="System Bold" size="18.0" />
+			</font>
+		</Label>
+		<Label layoutX="68.0" layoutY="179.0" text="Gast-Nr:">
+			<font>
+				<Font name="System Regular" size="13.0" />
+			</font>
+		</Label>
+		<TextField fx:id="tfGastNummer" layoutX="138.0" layoutY="173.0" prefHeight="27.0" prefWidth="124.0" promptText="100X" />
+		<Label layoutX="124.0" layoutY="129.0" text="*" textFill="RED">
+			<font>
+				<Font name="System Bold" size="18.0" />
+			</font>
+		</Label>
+		<Label layoutX="124.0" layoutY="264.0" text="*" textFill="RED">
+			<font>
+				<Font name="System Bold" size="18.0" />
+			</font>
+		</Label>
+		<Label layoutX="393.0" layoutY="134.0" text="Gebuchte Zimmer-Nr:">
+			<font>
+				<Font name="System Regular" size="13.0" />
+			</font>
+		</Label>
+		<Label fx:id="lblGebuchteZimmerNr" layoutX="544.0" layoutY="134.0">
+			<font>
+				<Font name="System Regular" size="13.0" />
+			</font>
+		</Label>
+	</children>
+</AnchorPane>

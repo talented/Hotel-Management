@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane minHeight="400.0" minWidth="250.0" prefHeight="533.0" prefWidth="837.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.GastFormController">
+<BorderPane minHeight="400.0" minWidth="250.0" prefHeight="533.0" prefWidth="837.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.GastFormUpdateController">
    <top>
       <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="400.0" minWidth="250.0" prefHeight="567.0" prefWidth="850.0" BorderPane.alignment="CENTER">
          <children>

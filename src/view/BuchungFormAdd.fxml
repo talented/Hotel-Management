@@ -10,7 +10,8 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="358.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.NeueBuchungGUIController">
+<AnchorPane prefHeight="358.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.BuchungFormAddController">
+
    <children>
       <DatePicker fx:id="dpAnreise" layoutX="130.0" layoutY="175.0" onAction="#auswahlAnreise" prefHeight="25.0" prefWidth="149.0" AnchorPane.leftAnchor="130.0" AnchorPane.topAnchor="175.0" />
       <Label layoutX="179.0" layoutY="23.0" text="Neue Buchung Anlegen" AnchorPane.leftAnchor="179.0" AnchorPane.topAnchor="23.0">

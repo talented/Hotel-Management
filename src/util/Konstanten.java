@@ -107,8 +107,8 @@ public class Konstanten {
 
 	public static final String HOTELZIMMERKATEGORY_EZ = "Einzeizimmer (mit kostenfreiem W-LAN, Badewanne/WC)";
 	public static final String HOTELZIMMERKATEGORY_DZ = "Doppelbettzimmer (mit kostenfreiem W-LAN, Badewanne/WC)";
-	public static final String HOTELZIMMERKATEGORY_FZ = "FamileenZimmer (extra grosse Zimmer mit kostenfreiem W-LAN, Badewanne/WC)";
-	public static final String HOTELZIMMERKATEGORY_SUITE = "Suite  in der Gr��e zwischen 50 - 55 m� hat ein Schlafzimmer, Wohnzimmer (mit kostenfreiem W-LAN, Badewanne/WC)";
+	public static final String HOTELZIMMERKATEGORY_FZ = "FamilienZimmer (extra grosse Zimmer mit kostenfreiem W-LAN, Badewanne/WC)";
+	public static final String HOTELZIMMERKATEGORY_SUITE = "Suite  in der größe zwischen 50 - 55 m2 hat ein Schlafzimmer, Wohnzimmer (mit kostenfreiem W-LAN, Badewanne/WC)";
 
 	public static final int H1 = 36;
 	public static final int H2 = 24;
@@ -118,6 +118,6 @@ public class Konstanten {
 	public static final int DEFAULT_FONT_SIZE = 10;
 	public static final String DEFAULT_FONT_NAME = "Arial";
 
-	public static final String PATH = "Z:\\Heidi_Karen_Hess_Grez";
+	public static final String PATH = "Z:\\Oezguer_Yarikkas";
 	public static final String FORMATIER = "yyyy-MM-dd";
 }

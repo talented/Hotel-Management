@@ -26,6 +26,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import model.BuchungModel;
+import util.rechnung.Rechnung;
 import javafx.scene.Node;
 
 public class HotelZimmerSystemViewController {
@@ -70,6 +71,7 @@ public class HotelZimmerSystemViewController {
 	private TableColumn<Buchung, String> columnZahlungsart;
 
 	BuchungModel bm;
+	Rechnung rechnung;
 
 	/**
 	 * Wenn man den Button Buchung_bearbeiten bet�tigt, �ffnet sich ein neues
@@ -79,9 +81,11 @@ public class HotelZimmerSystemViewController {
 	 */
 	@FXML
 	void btnBuchungBearbeiten(ActionEvent event) {
+		
 		Parent buchungaendern;
 		try {
-			buchungaendern = FXMLLoader.load(getClass().getResource("BuchungAendernGUI.fxml"));
+
+			buchungaendern = FXMLLoader.load(getClass().getResource("BuchungFormUpdate.fxml"));
 			Scene buchungaendernscene = new Scene(buchungaendern);
 			Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
 			window.setScene(buchungaendernscene);
@@ -137,7 +141,7 @@ public class HotelZimmerSystemViewController {
 	void btnGastBearbeiten(ActionEvent event) {
 		Parent gastendern;
 		try {
-			gastendern = FXMLLoader.load(getClass().getResource("GastForm.fxml"));
+			gastendern = FXMLLoader.load(getClass().getResource("GastFormUpdate.fxml"));
 			Scene gastendernscene = new Scene(gastendern);
 			Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
 			window.setScene(gastendernscene);
@@ -158,7 +162,7 @@ public class HotelZimmerSystemViewController {
 	void btnNeueBuchung(ActionEvent event) {
 		Parent neuebuchung;
 		try {
-			neuebuchung = FXMLLoader.load(getClass().getResource("NeueBuchungGUI.fxml"));
+			neuebuchung = FXMLLoader.load(getClass().getResource("BuchungFormAdd.fxml"));
 			Scene neuebuhungscene = new Scene(neuebuchung);
 			Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
 			window.setScene(neuebuhungscene);
@@ -204,7 +208,10 @@ public class HotelZimmerSystemViewController {
 			// Pr�ft ob die Buchungsnummer schon existiert.
 			if (bm.existBuchung(bnrer) == true) {
 				if (bnrer != null && !bnrer.isEmpty()) {
-					// new Rechnung(bm.getBuchungByBuchungsNr(bnrer));
+					
+					rechnung = new Rechnung(bm.getBuchungByBuchungsNr(bnrer));
+					rechnung.WordDOCXPOI();
+
 				}
 			} else {
 				new WarningAlert("Rechnung erstellen fehlgeschlagen",

@@ -9,6 +9,7 @@ import java.util.ArrayList;
 
 import dbUtil.DBHelper;
 import verwaltung.Buchung;
+import view.util.InformationAlert;
 
 public class BuchungModel extends DBHelper {
 
@@ -192,7 +193,7 @@ public class BuchungModel extends DBHelper {
 			rs = pr.getGeneratedKeys();
 
 			if (rs.next()) {
-				System.out.println("Successfully saved into Database!");
+				new InformationAlert("Erfolgreich!", "Buchung ist erfolgreich erstellt!");
 			}
 
 		} catch (SQLException e) {

@@ -25,7 +25,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import model.GastModel;
 
-public class GastFormController {
+public class GastFormUpdateController {
 
 	GastModel gastModel;
 

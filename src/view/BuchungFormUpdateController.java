@@ -12,7 +12,6 @@ import verwaltung.Zimmer;
 import util.Konstanten;
 import view.util.ErrorAlert;
 import view.util.WarningAlert;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -30,7 +29,7 @@ import javafx.stage.Stage;
 import model.BuchungModel;
 import model.ZimmerModel;
 
-public class BuchungAendernGUIController {
+public class BuchungFormUpdateController {
 
 	@FXML
 	private DatePicker dpAnreise;
@@ -152,8 +151,6 @@ public class BuchungAendernGUIController {
 	@FXML
 	void buchungsnummerSuchen(ActionEvent event) throws SQLException {
 
-		// buchung = new Buchung();
-
 		if (!tfBuchungsnummer.getText().isEmpty()) {
 		}
 		String buchungsNr = tfBuchungsnummer.getText();
@@ -163,17 +160,13 @@ public class BuchungAendernGUIController {
 		System.out.println(buchung.getAll());
 		if (!buchungsNr.equals(buchung.getBuchungsNr())) {
 			System.out.println("Diese Buchungsnummer existiert nicht!");
-			// new ErrorAlert("Eingabefehler", null, "Die Buchungsnummer existiert nicht!",
-			// false);
+			new ErrorAlert("Eingabefehler", null, "Die Buchungsnummer existiert nicht!", false);
 		} else {
 			anzeigen(buchung);
+			btnSuchen.setDisable(true);
+			tfBuchungsnummer.setDisable(true);
 		}
-
-		new ErrorAlert("Eingabefehler", null, "Die Buchungsnummer existiert nicht!", false);
-
-		/*anzeigen(buchung);
-		btnSuchen.setDisable(true);
-		tfBuchungsnummer.setDisable(true);*/
+		
 	}
 
 	/**
@@ -189,38 +182,9 @@ public class BuchungAendernGUIController {
 		dpAbreise.setValue(buchung.getAbreise());
 		chbFruehstueck.setSelected(buchung.isFruehstueck());
 		chbKinderbett.setSelected(buchung.isKinderbett());
-		
-		// tfPersonenanzahl.setText(String.valueOf(buchung.getAnzahlPersonen()));
 		cmbAnzahlPersonen.setValue(buchung.getAnzahlPersonen());
 		cmbZimmer.setValue(buchung.getZimmerNr());
 		cmbZahlungsart.setValue(buchung.getZahlungsart());
-		// }
-		/*
-		 * if (tfBuchungsnummer.getText() == null ||
-		 * tfBuchungsnummer.getText().isEmpty()) { new ErrorAlert("Buchungsnummer",
-		 * "Die Buchungsnummer muss mindestens ein Zeichen haben.", false);
-		 * tfBuchungsnummer.requestFocus(); } String buchungsNr =
-		 * tfBuchungsnummer.getText();
-		 * 
-		 * buchungModel.isDatabaseConnected();
-		 * 
-		 * buchungModel.getBuchungByBuchungsNr(buchungsNr);
-		 * 
-		 * if (buchungsNr != buchung.getBuchungsNr()) { new
-		 * WarningAlert("Buchungsnummer unbekannt", "Die Buchung mit der Nummer:\n " +
-		 * buchungsNr + " existiert nicht"); } else if (buchung.isStorniert() == true) {
-		 * new WarningAlert("Stornierte Buchung", "Die Buchung mit der Nummer:\n " +
-		 * buchungsNr + " wurde bereits storniert und kann nicht ge�ndert werden"); }
-		 * else { tfBuchungsnummer.setText(buchung.getBuchungsNr());
-		 * dpAnreise.setValue(buchung.getAnreise());
-		 * dpAbreise.setValue(buchung.getAbreise());
-		 * chbFruehstueck.setSelected(buchung.isFruehstueck());
-		 * chbKinderbett.setSelected(buchung.isKinderbett());
-		 * //tfPersonenanzahl.setText(String.valueOf(buchung.getAnzahlPersonen()));
-		 * cmbZimmer.setValue(buchung.getZimmerNr());
-		 * cmbZahlungsart.setValue(buchung.getZahlungsart());
-		 * cmbAnzahlPersonen.setValue(buchung.getAnzahlPersonen()); }
-		 */
 
 	}
 
@@ -232,11 +196,8 @@ public class BuchungAendernGUIController {
 	 * @throws SQLException 
 	 */
 	@FXML
-	void buchungAendern(ActionEvent event) throws SQLException /* throws NumberFormatException, */ {
+	void buchungAendern(ActionEvent event) throws SQLException {
 
-		// Buchung alteBuchung = new Buchung();
-		// Buchung neueBuchung = new Buchung();
-		Buchung neueBuchung = null;
 		buchungModel = new BuchungModel();
 		String buchungsNr = tfBuchungsnummer.getText();
 
@@ -253,8 +214,6 @@ public class BuchungAendernGUIController {
 			clearCombo();
 
 			if (anreise.isBefore(LocalDate.now())) {
-				// new ErrorAlert("Anreisedatum", "Die Anreise darf fr�hestens heute erfolgen",
-				// false);
 				dpAnreise.requestFocus();
 				reloadCombo();
 			} else {
@@ -262,18 +221,6 @@ public class BuchungAendernGUIController {
 			}
 
 			new ErrorAlert("Anreisedatum", "Die Anreise darf fr�hestens heute erfolgen", false);
-
-			// }
-			// }
-			// }
-			// } catch (SQLException e ) {
-			// new ErrorAlert("Anreisedatum", "Die Anreise darf fr�hestens heute erfolgen",
-			// false);
-			// } /*catch (NumberFormatException e) {
-			// new ErrorAlert("Anreisedatum", "Die Anreise darf fr�hestens heute erfolgen",
-			// false);
-			// }*/
-			// }
 
 			/**
 			 * @throws Ein ErrorAlert wird generiert, wenn das Abreisedatum fr�her als das
@@ -286,10 +233,9 @@ public class BuchungAendernGUIController {
 			clearCombo();
 
 			if (abreise.isBefore(anreise) || anreise.plusDays(120).isBefore(abreise)) {
-				// new ErrorAlert("Abreisedatum", "Die Abreise muss maximal 120 Tage nach der
-				// Anreise erfolgen", false);
+	
 				dpAbreise.requestFocus();
-				// }
+	
 				reloadCombo();
 			} else {
 
@@ -300,12 +246,12 @@ public class BuchungAendernGUIController {
 			/**
 			 * @param fruehstueck Weist dem Fr�hst�ck true oder false zu.
 			 */
-			String fruehstueck = chbFruehstueck.getText();
+			//String fruehstueck = chbFruehstueck.getText();
 
 			/**
 			 * @param kinderbett Weist dem Kinderbett true oder false zu.
 			 */
-			String kinderbett = chbKinderbett.getText();
+			//String kinderbett = chbKinderbett.getText();
 
 			/**
 			 * @throws Ein ErrorAlert wird generiert, wenn das gew�nschte Zimmer nicht
@@ -319,7 +265,7 @@ public class BuchungAendernGUIController {
 				new ErrorAlert("Zimmer", "Das Zimmer ist nicht verf�gbar", false);
 				cmbZimmer.requestFocus();
 			}
-			ObservableList<Integer> zimmer = cmbZimmer.getItems();
+			//ObservableList<Integer> zimmer = cmbZimmer.getItems();
 
 			new ErrorAlert("Ausgew�hltes Zimmer", "Das Zimmer ist nicht verf�gbar", false);
 
@@ -335,7 +281,7 @@ public class BuchungAendernGUIController {
 				// new ErrorAlert("Zahlungsart", "Die Zahlungsart ist nicht verf�gbar", false);
 				cmbZahlungsart.requestFocus();
 
-				ObservableList<String> zahlungsart = cmbZahlungsart.getItems();
+				//ObservableList<String> zahlungsart = cmbZahlungsart.getItems();
 			} else {
 
 			}
@@ -343,23 +289,23 @@ public class BuchungAendernGUIController {
 			new ErrorAlert("Zahlungsart", "Die Zahlungsart ist nicht verf�gbar", false);
 
 		}
-		neueBuchung.setBuchungsNr(buchungsNr);
-		neueBuchung.setAnreise(anreise);
-		neueBuchung.setAbreise(abreise);
-		neueBuchung.setFruehstueck(this.fruehstueck);
-		neueBuchung.setAnzahlPersonen(anzahlPersonen);
-		neueBuchung.setKinderbett(this.kinderbett);
-		neueBuchung.setZimmerNr(ausgewaehltesZimmer.getZimmerNr());
-		neueBuchung.setZahlungsart(ausgewaehlteZahlungsart);
+		//neueBuchung.setBuchungsNr(buchungsNr);
+		//neueBuchung.setAnreise(anreise);
+//		neueBuchung.setAbreise(abreise);
+//		neueBuchung.setFruehstueck(this.fruehstueck);
+//		neueBuchung.setAnzahlPersonen(anzahlPersonen);
+//		neueBuchung.setKinderbett(this.kinderbett);
+//		neueBuchung.setZimmerNr(ausgewaehltesZimmer.getZimmerNr());
+//		neueBuchung.setZahlungsart(ausgewaehlteZahlungsart);
 
 		// bm.updateBuchung(neueBuchung);
 
 		// buchungModel.updateBuchung(neueBuchung);
-		if (neueBuchung.equals(buchung)) {
-			return;
-		} else {
-			buchungModel.updateBuchung(neueBuchung);
-		}
+//		if (neueBuchung.equals(buchung)) {
+//			return;
+//		} else {
+//			buchungModel.updateBuchung(neueBuchung);
+//		}
 
 		/*
 		 * else { new WarningAlert("Buchung �ndern fehlgeschlagen",
@@ -384,8 +330,6 @@ public class BuchungAendernGUIController {
 	void initialize() throws SQLException {
 		assert dpAnreise != null : "fx:id=\"dpAnreise\" was not injected: check your FXML file 'BuchungAendernGUI.fxml'.";
 		assert dpAbreise != null : "fx:id=\"dpAbreise\" was not injected: check your FXML file 'BuchungAendernGUI.fxml'.";
-		// assert tfPersonenanzahl != null : "fx:id=\"tfPersonenanzahl\" was not
-		// injected: check your FXML file 'BuchungAendernGUI.fxml'.";
 		assert tfBuchungsnummer != null : "fx:id=\"tfBuchungsnummer\" was not injected: check your FXML file 'BuchungAendernGUI.fxml'.";
 		assert cmbZahlungsart != null : "fx:id=\"cmbZahlungsart\" was not injected: check your FXML file 'BuchungAendernGUI.fxml'.";
 		assert cmbZimmer != null : "fx:id=\"cmbZimmer\" was not injected: check your FXML file 'BuchungAendernGUI.fxml'.";
@@ -397,9 +341,7 @@ public class BuchungAendernGUIController {
 		assert cmbAnzahlPersonen != null : "fx:id=\"cmbAnzahlPersonen\" was not injected: check your FXML file 'BuchungAendernGUI.fxml'.";
 
 		buchungModel = new BuchungModel();
-		
-		System.out.println(buchung.getAll());
-		
+				
 		initializeComboBox();
 		// initializeCheckBox();
 
@@ -462,7 +404,6 @@ public class BuchungAendernGUIController {
 					try {
 						auswahlZimmer();
 					} catch (SQLException e) {
-						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
 				});
@@ -491,9 +432,8 @@ public class BuchungAendernGUIController {
 	 * @throws SQLException 
 	 */
 	private void auswahlZimmer() throws SQLException {
-		// ausgewaehltesZimmer =
-		// Integer.parseInt(cmbZahlungsart.getSelectionModel().getSelectedItem());
 		ausgewaehltesZimmer = zimmerModel.getZimmerByZimmerNr(cmbZimmer.getSelectionModel().getSelectedItem());
+		System.out.println(ausgewaehltesZimmer);
 	}
 
 	/**
@@ -503,38 +443,6 @@ public class BuchungAendernGUIController {
 	private void auswahlZahlungsart() {
 		ausgewaehlteZahlungsart = cmbZahlungsart.getSelectionModel().getSelectedItem();
 	}
-
-	/**
-	 * 
-	 */
-	/*
-	 * private void reloadCombo() {
-	 * 
-	 * ArrayList<Zimmer> alleVerfuegbareZimmer = null; verfuegbareZimmer = new
-	 * ArrayList<>(); try { ZimmerBean ziMo = new ZimmerBean();
-	 * 
-	 * try { alleVerfuegbareZimmer = ziMo.getVerfuegbareZimmer(anreise, abreise); }
-	 * catch (IllegalArgumentException e) { if (anreise.isBefore(LocalDate.now())) {
-	 * new WarningAlert("Buchung anlegen",
-	 * "Die Anreise darf nicht in der Vergangenheit liegen.\nBitte korrigieren Sie ihr Eingabe."
-	 * ); } if (anreise.isAfter(abreise) || anreise.equals(abreise)) { new
-	 * WarningAlert("Buchung anlegen",
-	 * "Die Abreise muss mindestens einen Tag sp�ter als die Anreise sein.\nBitte korrigieren Sie ihr Eingabe."
-	 * ); } }
-	 * 
-	 * } catch (SQLException e) { new ErrorAlert("Buchung anlegen",
-	 * "Es ist ein Fehler bei der SQL-Datenbank-Verbindung aufgetreteten.\nDas Programm wird beendet"
-	 * , true); }
-	 * 
-	 * try { for (Zimmer zi : alleVerfuegbareZimmer) { if
-	 * (zi.getKategorie().getAnzahlBetten() >= anzahlPersonen) {
-	 * verfuegbareZimmer.add(zi); } } } catch (NullPointerException ignored) { }
-	 * 
-	 * cmbZimmer.getItems().addAll(verfuegbareZimmer);
-	 * 
-	 * cmbZimmer.getSelectionModel().selectedItemProperty()
-	 * .addListener((observable, oldValue, newValue) -> auswahlZimmer()); }
-	 */
 
 	private void reloadCombo() {
 
@@ -578,19 +486,17 @@ public class BuchungAendernGUIController {
 					try {
 						auswahlZimmer();
 					} catch (SQLException e) {
-						// TODO Auto-generated catch block
+						
 						e.printStackTrace();
 					}
 				});
 	}
 
-	/**
-	 * 
-	 */
 	private void clearCombo() {
 		cmbZimmer.getItems().clear();
 	}
 
+	@SuppressWarnings("unused")
 	private boolean setValues() throws SQLException {
 
 		buchungModel = new BuchungModel();

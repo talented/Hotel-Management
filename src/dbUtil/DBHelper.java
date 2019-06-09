@@ -11,8 +11,8 @@ public class DBHelper {
 	public DBHelper() {
 
 		try {
-//			this.connection = Database.getConnection();
-			this.setConnection(Database.getConnection());
+			this.connection = Database.getConnection();
+//			this.setConnection(Database.getConnection());
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -29,8 +29,8 @@ public class DBHelper {
 		return connection;
 	}
 
-	public void setConnection(Connection connection) {
-		this.connection = connection;
-	}
+//	public void setConnection(Connection connection) {
+//		this.connection = connection;
+//	}
 
 }

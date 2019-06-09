@@ -29,7 +29,7 @@ import model.BuchungModel;
 import model.GastModel;
 import model.ZimmerModel;
 
-public class NeueBuchungGUIController {
+public class BuchungFormAddController {
 
 	private LocalDate abreise;
 	private LocalDate anreise;
